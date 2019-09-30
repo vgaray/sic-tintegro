@@ -1,0 +1,6 @@
+Extension,integer,1,nomUsuario
+Caller ID,string,0,callerId
+Correo de Voz,string,0,correoBox
+Marca,string,0,nomMarca
+Modelo,string,0,nomModelo
+MAC,string,0,mac

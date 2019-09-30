@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.TerritorioMapper">
+	<resultMap id="TerritorioResultMap" type="pe.com.tintegro.dominio.Territorio">
+		<result property="codigo" column="codigo" />
+		<result property="nombre" column="nombre" />
+	</resultMap>
+	<select id="listarTerritorio" resultMap="TerritorioResultMap">
+		select * from sistema.fn_listar_departamentos_por_pais(#{p_co_pais})
+	</select>	
+
+</mapper>

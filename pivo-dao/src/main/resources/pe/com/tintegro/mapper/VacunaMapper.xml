@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="pe.com.tintegro.mapper.VacunaMapper">
+	<resultMap id="VacunaResultMap"
+		type="pe.com.tintegro.dominio.Vacuna">
+		<result property="idVacuna" column="id_vacuna" />
+		<result property="noNombre" column="no_nombre" />
+		<result property="noDescripcion" column="no_descripcion" />
+		<result property="idTipoVacuna" column="id_tipo_vacuna" />
+		<result property="noTipoVacuna" column="no_tipo_vacuna" />
+		<result property="feRegistro" column="fe_registro" />
+		<result property="feAplicado" column="fe_aplicado" />
+		<result property="ilAplicado" column="il_aplicado" />
+		<result property="idHistoriaClinica" column="id_historia_clinica" />
+	</resultMap>
+
+
+	<resultMap id="HistoriaClinicaCRUD"
+		type="pe.com.tintegro.dto.response.CRUDResponse">
+		<result property="idResult" column="id_resulta" />
+		<result property="mensajeValidacion" column="no_mensaje" />
+	</resultMap>
+
+	<!-- =============================================================== -->
+
+	<select id="listarVacuna"
+		resultMap="VacunaResultMap">
+		select * from
+		sistema.fn_listar_historia_vacuna_service(#{p_nu_chip},
+		#{p_no_pass},
+		#{p_id_instancia})
+	</select>
+
+	<!-- =============================================================== -->
+
+</mapper>

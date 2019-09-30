@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteConsolidadoTiempoEspera" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1b9d76bd-0981-4b35-a0ce-96f12a5025ab">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tipoConsolidado" class="java.lang.String"/>
+	<field name="nuPromedio" class="java.lang.String"/>
+	<field name="nuMinimo" class="java.lang.String"/>
+	<field name="nuMaximo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="595" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="cae7ffa5-94f3-45ed-ae1f-7af42c1dd993"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSOLIDADO DE TIEMPOS ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="151" height="29" backcolor="#CCCCCC" uuid="e9bf0e07-a8d5-4d01-bba8-33fb49bd1af2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="151" y="0" width="148" height="29" backcolor="#CCCCCC" uuid="56a5cb82-2413-40c0-a1c5-a4c2ff34fc74"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROMEDIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="299" y="0" width="148" height="29" backcolor="#CCCCCC" uuid="bd755449-2056-4218-bc12-1969c934489f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MÍNIMO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="447" y="0" width="148" height="29" backcolor="#CCCCCC" uuid="bd755449-2056-4218-bc12-1969c934489f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MÁXIMO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="151" height="29" uuid="2359b824-0612-46c6-8b7d-a0906a4e3403"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoConsolidado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="0" width="148" height="29" uuid="4d331e2b-eb0b-4621-b455-4fad93596c2d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuPromedio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="0" width="148" height="29" uuid="aade98fe-2cd3-4ef8-8c37-cf32dc9bcaa6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuMinimo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="0" width="148" height="29" uuid="f9ac5bee-6ec0-4bfc-9265-e4acf9bd737c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuMaximo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

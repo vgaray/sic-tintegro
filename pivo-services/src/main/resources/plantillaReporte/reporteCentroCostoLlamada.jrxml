@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCentroCostoLlamada" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" whenResourceMissingType="Empty" isIgnorePagination="true" uuid="f9df9947-14a2-46d9-8759-4cc48fded305">
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="ireport.zoom" value="1.3310000000000055"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="org.apache.commons.lang.time.*"/>
+	<parameter name="MyDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaInicial" class="java.lang.String"/>
+	<parameter name="fechaFinal" class="java.lang.String"/>
+	<parameter name="horaInicial" class="java.lang.String"/>
+	<parameter name="horaFinal" class="java.lang.String"/>
+	<parameter name="area" class="java.lang.String"/>
+	<parameter name="centro" class="java.lang.String"/>
+	<parameter name="pIdOrden" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="idArea" class="java.lang.Integer"/>
+	<field name="noArea" class="java.lang.String"/>
+	<field name="caLlamad" class="java.lang.Integer"/>
+	<field name="caDuraci" class="java.lang.String"/>
+	<field name="caDuraprom" class="java.lang.String"/>
+	<field name="caDuracmin" class="java.lang.String"/>
+	<field name="caDuracmax" class="java.lang.String"/>
+	<field name="nuTotalMin" class="java.lang.Number"/>
+	<field name="nuTotalMinPromedio" class="java.lang.Number"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="182" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="0" width="278" height="41" forecolor="#000000" backcolor="#FFFFFF" uuid="8a52d872-4cc1-4163-9397-40a53f330a7b"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T-Integro]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="298" y="0" width="278" height="41" uuid="f292a92d-f6c5-40f0-abef-e3d417831a5d"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{MyDate})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="41" width="556" height="61" forecolor="#000000" backcolor="#FFFFFF" uuid="8aec2639-2f0e-4020-a081-a20846e98b19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Llamadas por Centro de Costo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="122" width="85" height="20" uuid="4a9908bd-6ea8-4e2d-9318-7996c55f20f4"/>
+				<text><![CDATA[Desde Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="102" width="193" height="20" uuid="7905085a-cf46-42d5-95ad-7ef569ab697b"/>
+				<textFieldExpression><![CDATA[$P{area}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="122" width="193" height="20" uuid="d3f8990a-d61f-415f-9364-def1a346164a"/>
+				<textFieldExpression><![CDATA[$P{fechaFinal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="142" width="193" height="20" uuid="03a9b132-b469-4f09-8641-fed2632d84ec"/>
+				<textFieldExpression><![CDATA[$P{horaInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="142" width="193" height="20" uuid="7f7fd359-8cf4-4b87-af69-7b6d57f138c6"/>
+				<textFieldExpression><![CDATA[$P{horaFinal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="102" width="85" height="20" uuid="ebb8bf6d-ff77-4407-bc78-0750449c276c"/>
+				<text><![CDATA[Area:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="122" width="193" height="20" uuid="ae3a387b-549c-4ac7-bfa6-74e28d1a8f76"/>
+				<textFieldExpression><![CDATA[$P{fechaInicial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="142" width="85" height="20" uuid="1d077361-6295-4064-b40c-23ea1e93ea6b"/>
+				<text><![CDATA[Desde Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="142" width="85" height="20" uuid="b92c540b-b350-41fc-a477-c04999e76020"/>
+				<text><![CDATA[Hasta Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="122" width="85" height="20" uuid="6febc6a8-072d-4cb1-a44c-2419e99cc614"/>
+				<text><![CDATA[Hasta Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="383" y="102" width="193" height="20" uuid="1e6341f7-9714-4092-b2a7-25af320b50bb"/>
+				<textFieldExpression><![CDATA[$P{centro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="102" width="85" height="20" uuid="34fdbda5-1cfd-41cf-9afc-a385e30e969e"/>
+				<text><![CDATA[Centro Costo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="162" width="85" height="20" uuid="3ef08645-2b7e-46fe-9011-d32c2b8bc110"/>
+				<text><![CDATA[Filtro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="162" width="193" height="20" uuid="35450c00-e297-4c25-a316-68f661e84532"/>
+				<textFieldExpression><![CDATA[$P{pIdOrden}==Integer.parseInt("1") ? "Tiempo Conversado":$P{pIdOrden}==Integer.parseInt("2")?"Cantidad de Llamadas":$P{pIdOrden}==Integer.parseInt("3")?"Tiempo Conversado":"Tiempo Promedio"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="105" y="12" width="100" height="29" backcolor="#CCCCCC" uuid="13381b5c-96e2-4729-9adc-5034da79bd2a"/>
+				<box>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Area]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="12" width="85" height="29" backcolor="#CCCCCC" uuid="e8f6dded-1683-4546-a2b5-276f4ab292b3"/>
+				<box>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo Conversado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="448" y="12" width="62" height="29" backcolor="#CCCCCC" uuid="57247877-6711-4553-8db6-6c3062d9e119"/>
+				<box>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo Minimo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="510" y="12" width="66" height="29" backcolor="#CCCCCC" uuid="80a421e2-7e3a-4322-b0a4-8eb422d35b38"/>
+				<box>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo Maximo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="12" width="85" height="29" backcolor="#CCCCCC" uuid="6a6f1c31-3867-49c5-9a0c-2deb7854461d"/>
+				<box>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="205" y="12" width="93" height="29" backcolor="#CCCCCC" uuid="cbc3f04b-e836-4d58-ba9b-9674230748e9"/>
+				<box>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad de Llamadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="383" y="12" width="65" height="29" backcolor="#CCCCCC" uuid="2afe067e-80c0-43e7-ae2c-901c343c3d8a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo Promedio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="85" height="20" uuid="bd74709a-ac87-484a-a174-fbb77d565557">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idArea}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="0" width="100" height="20" uuid="905b7b85-198e-404a-b9ab-9b553cdb209f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noArea}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="0" width="65" height="20" uuid="b6aaf0ec-b4ee-4156-926b-17710f71758f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuraprom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="0" width="62" height="20" uuid="3b6ed0dd-a16b-49e9-8221-414ca843f6b3">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuracmin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="66" height="20" uuid="2df4c464-25ed-42bd-8d41-279030b68d69">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuracmax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="0" width="93" height="20" uuid="bbcc0ca9-7212-4a9b-bba5-5702bf138caf">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caLlamad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="0" width="85" height="20" uuid="dfd035f0-b543-4853-bbfb-c4920e37c7cd">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuraci}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="320" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="20" y="10" width="556" height="300" uuid="21486de5-9384-4bb1-9de0-9cdb48b6ba47"/>
+					<chartTitle>
+						<titleExpression><![CDATA[" Minutos por Centro de Costo "]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{noArea}]]></keyExpression>
+					<valueExpression><![CDATA[$P{pIdOrden}==Integer.parseInt("1") ? $F{nuTotalMin}:$P{pIdOrden}==Integer.parseInt("2")?$F{caLlamad}:$P{pIdOrden}==Integer.parseInt("3")?$F{nuTotalMin}:$F{nuTotalMinPromedio}]]></valueExpression>
+					<labelExpression><![CDATA[
+$P{pIdOrden}==Integer.parseInt("1") ? ($F{noArea}+":("+$F{caDuraci}+")T"):$P{pIdOrden}==Integer.parseInt("2")?($F{noArea}+":("+$F{caLlamad}+")"):$P{pIdOrden}==Integer.parseInt("3")?($F{noArea}+":("+$F{caDuraci}+")T"):($F{noArea}+":("+$F{caDuraprom}+")T")]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot>
+						<seriesColor seriesOrder="0" color="#9EB1FF"/>
+						<seriesColor seriesOrder="1" color="#D6CAFF"/>
+						<seriesColor seriesOrder="2" color="#FF6573"/>
+						<seriesColor seriesOrder="3" color="#46BFBD"/>
+						<seriesColor seriesOrder="4" color="#FDB45C"/>
+						<seriesColor seriesOrder="5" color="#949FB1"/>
+						<seriesColor seriesOrder="6" color="#4D5360"/>
+					</plot>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

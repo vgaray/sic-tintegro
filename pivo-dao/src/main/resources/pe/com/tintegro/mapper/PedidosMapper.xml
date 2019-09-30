@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.PedidosMapper">
+
+	<resultMap id="PedidosResultMapss" type="pe.com.tintegro.dominio.PedidoPorCliente">
+		<result property="noRazonSocial" column="no_razon_social" />
+		<result property="idPedido" column="id_pedido" />
+		<result property="fePedido" column="fe_pedido" />
+		<result property="idCliente" column="id_cliente" />
+		<result property="noEstadoPedido" column="no_estadopedido" />
+	</resultMap>
+
+	<select id="listPedidoxClientess" resultMap="PedidosResultMapss">
+		select * from
+		sistema.fn_pedido_cliente(#{idTipdoc},#{idCliente},#{idPedido},#{idEstadoPedido})
+	</select>
+
+
+	<resultMap id="PedidosResultMapsNuevo" type="pe.com.tintegro.dominio.Pedido">
+	    <result property="idPedido" column="id_pedido" />
+		<result property="coPedido" column="co_pedido" />
+		<result property="tiPedido" column="no_tipopedido" />
+		<result property="plan" column="no_plan" />
+		<result property="tipoDetalle" column="no_tipodetalle" />
+		<result property="dePedido" column="no_descripcion" />
+		<result property="fePedido" column="fe_pedido" />
+		<result property="estadoPedido" column="no_estadopedido" />
+	</resultMap>
+	
+	<select id="listPedidoPorCliente" resultMap="PedidosResultMapsNuevo">
+		select * from
+		sistema.fn_listar_pedido_por_cliente(#{p_id_cliente})
+	</select>
+	
+	<resultMap id="PedidoPorClienteCRUD" type="pe.com.tintegro.dto.response.CRUDResponse">
+		<result property="idResult" column="id_resulta"/>
+		<result property="mensajeValidacion" column="no_mensaje" />
+	</resultMap>
+	<resultMap id="pedidoResponse" type="pe.com.tintegro.dominio.TipoPedido">
+		<result property="id" column="id"/>
+		<result property="noDescripcion" column="no_descripcion" />
+	</resultMap>
+	<resultMap id="pedidoResponseDetalle" type="pe.com.tintegro.dominio.TipoDetallePedido">
+		<result property="id" column="id"/>
+		<result property="noDescripcion" column="no_descripcion" />
+	</resultMap>
+	<resultMap id="pedidoResponsePlan" type="pe.com.tintegro.dominio.Plan">
+		<result property="id" column="id_plan"/>
+		<result property="noDescripcion" column="no_plan" />
+		<result property="caAnexos" column="ca_anexos" />
+	</resultMap>
+	<select id="insertarPedidoPorCliente" resultMap="PedidoPorClienteCRUD">
+		select * from sistema.fn_insertar_pedido_cliente(
+		#{v_id_cliente},
+		#{v_co_pedido},
+		#{v_direccion_pedido},
+		#{v_id_tipopedido},
+		#{v_id_plan},
+		#{v_no_descripcion},
+		#{v_id_tipodetalle})
+	</select>
+	
+	<select id="eliminarPedidoPorCliente" resultMap="PedidoPorClienteCRUD">
+		select * from sistema.fn_eliminar_pedido_cliente(
+		#{p_id_pedido})
+	</select>
+	
+	<select id="listTipoPedido" resultMap="pedidoResponse">
+		select * from sistema.fn_listar_tipo_pedido()
+	</select>
+	
+	<select id="listTipoDetallePedido" resultMap="pedidoResponseDetalle">
+		select * from sistema.fn_listar_tipo_detalle()
+	</select>
+	
+	<select id="listPlan" resultMap="pedidoResponsePlan">
+		select * from sistema.fn_listar_plan2()
+	</select>
+		
+</mapper>

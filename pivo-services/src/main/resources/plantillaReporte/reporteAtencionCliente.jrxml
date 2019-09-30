@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteAtencionCliente" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7d379fe7-d045-4ac1-85ec-2b5789460888">
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="feLlamad" class="java.lang.String"/>
+	<field name="llaEntra" class="java.lang.Integer"/>
+	<field name="llaAtendi" class="java.lang.Integer"/>
+	<field name="llaAtetab" class="java.lang.Integer"/>
+	<field name="llaAbando" class="java.lang.Integer"/>
+	<field name="llaAbatab" class="java.lang.Integer"/>
+	<field name="porcentajeTotalAbandonos" class="java.math.BigDecimal"/>
+	<field name="porcentajeTabAbandonos" class="java.math.BigDecimal"/>
+	<field name="porcentajeRoEficacia" class="java.math.BigDecimal"/>
+	<field name="porcentajeNsvEficacia" class="java.math.BigDecimal"/>
+	<field name="tiEma" class="java.lang.Integer"/>
+	<field name="tiProesp" class="java.lang.Integer"/>
+	<field name="tiProcon" class="java.lang.Integer"/>
+	<title>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="-2" width="595" height="29" forecolor="#FFFFFF" backcolor="#000000" uuid="8e14039c-4792-4e46-8621-0ebbb5375fd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE ATENCION CLIENTE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="45" height="40" backcolor="#CCCCCC" uuid="936cc0ea-0362-41ad-a449-7670a6a9a12c"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Año]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="45" y="0" width="60" height="40" backcolor="#CCCCCC" uuid="a63b66d3-5aa0-443f-b8f4-12d7ff28f4f7"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Llamadas Entrantes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="105" y="0" width="100" height="20" backcolor="#CCCCCC" uuid="d5402633-8463-4795-b1b2-574ca26af53c"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atendidas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="155" y="20" width="50" height="20" backcolor="#CCCCCC" uuid="1824995b-42de-47b9-821b-79e325a6fe10"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[<Tab]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="105" y="20" width="50" height="20" backcolor="#CCCCCC" uuid="a014e315-04f9-4010-8991-dbe94c940a6a"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="205" y="0" width="100" height="20" backcolor="#CCCCCC" uuid="e5b91f0d-9f51-46ca-a919-5c8e69888771"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Abandonos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="205" y="20" width="50" height="20" backcolor="#CCCCCC" uuid="b6b53fe9-ac53-4401-a0bb-dbe59629610b"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="255" y="20" width="50" height="20" backcolor="#CCCCCC" uuid="9a520011-a31a-4fa5-9eb7-3e1dafcb47ca"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[<Tab]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="305" y="0" width="100" height="20" backcolor="#CCCCCC" uuid="040bc15b-7554-46d9-9903-e152aa0fa60d"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[%Abandonos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="305" y="20" width="50" height="20" backcolor="#CCCCCC" uuid="1169e07e-239f-428c-8d09-a4187f9d8efa"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="355" y="20" width="50" height="20" backcolor="#CCCCCC" uuid="7392e922-a20e-44f6-8f40-650bb9f3e77b"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[<Tab]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="405" y="0" width="100" height="20" backcolor="#CCCCCC" uuid="aa392ac3-e624-418e-9704-0c641844213a"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[%Eficacia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="535" y="0" width="30" height="40" backcolor="#CCCCCC" uuid="7a84c783-bb01-40a1-a459-544331a44e10"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EPA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="505" y="0" width="30" height="40" backcolor="#CCCCCC" uuid="a2f867f2-add4-4db0-988d-143ffd3fd854"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="565" y="0" width="30" height="40" backcolor="#CCCCCC" uuid="286aa355-3ae7-458d-a920-14623ca8b6cb"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TPC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="405" y="20" width="50" height="20" backcolor="#CCCCCC" uuid="f91ba91b-5146-4d33-a631-616bee4e676f"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="455" y="20" width="50" height="20" backcolor="#CCCCCC" uuid="c650006c-f8e4-4ac2-9575-077f33c17120"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NSV]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="45" height="30" uuid="c22dc182-e53f-4512-957f-f3ab755b25cf"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{feLlamad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="0" width="60" height="30" uuid="3ad8cac8-c3fa-41f9-9b80-8198527285ff"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{llaEntra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="0" width="50" height="30" uuid="2c9dd29a-286e-479d-bd0b-7f739125e0cc"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{llaAtendi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="0" width="50" height="30" uuid="a040dcdc-2769-428a-b420-3d54defcfedc"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{llaAtetab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="0" width="50" height="30" uuid="6283e686-a231-4bfd-b683-ed2f16e15c8a"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{llaAbando}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="0" width="50" height="30" uuid="4025888b-b52e-47ee-a3b7-d6c29b81d0d8"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{llaAbatab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="0" width="50" height="30" uuid="ad30042a-94ac-46be-ae78-324034df82c4"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{porcentajeTotalAbandonos}+"%"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="50" height="30" uuid="9540d372-6c61-4514-9ca7-d2474aaee8bd"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{porcentajeTabAbandonos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="0" width="50" height="30" uuid="a475faea-ee3f-4d57-b739-12e123336a7c"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{porcentajeRoEficacia}+"%"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="50" height="30" uuid="180e7301-f98f-4fb0-b927-14177f052a68"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{porcentajeNsvEficacia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="505" y="0" width="30" height="30" uuid="8bebc56e-0e0c-4904-91ae-9b82642acc94"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tiEma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="535" y="0" width="30" height="30" uuid="298513f4-1ab8-4399-9fc2-7be7be118eda"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tiProesp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="565" y="0" width="30" height="30" uuid="692f8d8b-e6e9-433e-b2f0-3b487c99fce5"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tiProcon}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="650" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="340" width="595" height="300" uuid="018ef40a-3d18-4cd6-a99e-612ab792bccf"/>
+					<box>
+						<pen lineWidth="0.5" lineColor="#757373"/>
+					</box>
+					<chartTitle>
+						<titleExpression><![CDATA["Gráfico % Llamadas"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["%Eficacia"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{feLlamad}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{porcentajeRoEficacia}]]></valueExpression>
+						<labelExpression><![CDATA[$F{porcentajeRoEficacia}+"%"]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["%Abandonos"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{feLlamad}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{porcentajeTotalAbandonos}]]></valueExpression>
+						<labelExpression><![CDATA[$F{porcentajeTotalAbandonos}+"%"]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot isShowLabels="true">
+					<plot>
+						<seriesColor seriesOrder="0" color="#9EB1FF"/>
+						<seriesColor seriesOrder="1" color="#D6CAFF"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="20" width="595" height="300" uuid="ef79621c-956a-41d3-870a-d5d449cf9370"/>
+					<box>
+						<pen lineWidth="0.5" lineColor="#757373"/>
+					</box>
+					<chartTitle>
+						<titleExpression><![CDATA["Gráfico Llamadas"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["TOTAL"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{feLlamad}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{llaEntra}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["ATENDIDAS"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{feLlamad}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{llaAtendi}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["ABANDONADAS"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{feLlamad}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{llaAbando}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot isShowLabels="true">
+					<plot backcolor="#FFFFFF" backgroundAlpha="1.0" foregroundAlpha="1.0" labelRotation="360.0">
+						<seriesColor seriesOrder="0" color="#9EB1FF"/>
+						<seriesColor seriesOrder="1" color="#D6CAFF"/>
+						<seriesColor seriesOrder="2" color="#FF6573"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat labelRotation="360.0">
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000">
+							<tickLabelFont>
+								<font size="12"/>
+							</tickLabelFont>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000">
+							<labelFont>
+								<font fontName="DejaVu Sans"/>
+							</labelFont>
+							<tickLabelFont>
+								<font fontName="DejaVu Sans"/>
+							</tickLabelFont>
+						</axisFormat>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<textField>
+				<reportElement x="0" y="0" width="45" height="20" uuid="f96e49dc-4e03-481e-a4b6-df56924934ce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

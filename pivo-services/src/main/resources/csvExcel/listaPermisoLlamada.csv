@@ -1,0 +1,7 @@
+Nombre,string,1,noNombre
+Ap Paterno,string,1,noApepat
+Ap Materno,string,0,noApemat
+Puesto,string,0,noPuesto
+Area,string,0,nomArea
+Centro Costo,string,0,nomCentroCosto
+Pin,string,0,nuPin

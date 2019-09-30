@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.ClienteMapper">
+
+	<resultMap id="ClienteResultMap" type="pe.com.tintegro.dominio.Cliente">
+		<result property="idCliente" 		column="id_cliente" />
+		<result property="noRazonSocial" 	column="no_razon_social" />
+		<result property="ruc" 				column="ruc" />
+		<result property="direcc" 			column="direccion" />
+		<result property="telef" 			column="telefono" />
+		<result property="correoEle" 		column="correo" />
+		<result property="personRef" 		column="personareferencia" />
+		<result property="estado" 			column="estado" />
+	</resultMap>
+
+	<resultMap id="ClienteResultMap2" type="pe.com.tintegro.dominio.Cliente">
+		<result property="resultado" column="resultado" />
+	</resultMap>
+
+	<select id="listaCliente" resultMap="ClienteResultMap">
+		select * from
+		sistema.listar_clientes()
+	</select>
+	
+	<!-- =============================================================== -->
+
+	<select id="InsertaCliente" resultType="java.lang.Integer">
+		select regitrarcliente
+		from
+		sistema.regitrarcliente(#{noRazonSocial},#{ruc},#{direccion},#{telefono},#{correo},#{personareferencia})
+	</select>
+
+	<!-- =============================================================== -->
+
+	<select id="eliminaCliente" resultType="java.lang.Integer">
+		select eliminarcliente
+		from sistema.eliminarcliente(#{idCliente})
+	</select>
+
+	<select id="actualizaCliente" resultType="java.lang.Integer">
+		select
+		actualizarcliente from
+		sistema.actualizarcliente(#{idCliente},#{noRazonSocial},#{ruc},#{direccion},#{telefono},#{correo},#{personareferencia})
+	</select>
+	
+	<select id="listarClienteAutoCompletar" resultMap="ClienteResultMap">
+	     select * from sistema.fn_listar_cliente_like(#{pNoRazonSocial})
+	</select>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pe.com.tintegro.mapper.MenuSicMapper">
+
+	<resultMap id="MenuSicResultMap" type="pe.com.tintegro.dominio.MenuSic">
+		<result property="idPagina" column="id_pagina" />
+		<result property="nomPagina" column="no_pagina" />
+		<result property="nomComponente" column="no_componente" />
+		<result property="nomUrl" column="no_url" />
+		<result property="nomIcono" column="no_icono" />
+		<result property="idTipoMenu" column="id_tipo_menu" />
+		<result property="idPagPadre" column="id_pag_padre" />
+
+
+	</resultMap>
+
+
+
+	<select id="listaMenuSic" resultMap="MenuSicResultMap">
+		SELECT * from
+		oauth.fn_generer_menu(#{p_no_login},#{p_ti_menu})
+	</select>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pe.com.tintegro.mapper.ModeloTelefonoGeneralMapper">
+	<resultMap type="pe.com.tintegro.dominio.ModeloTelefono" id="ModeloTelefonoGeneralResultMap">
+		<result property="modeloId" column="id_modelo" />
+		<result property="nomModelo" column="no_modelo" />
+		<result property="marcaId" column="id_marca" />
+	</resultMap>
+	<select id="listaModeloTelefonoPorMarcaGeneral" resultMap="ModeloTelefonoGeneralResultMap">
+		SELECT * FROM sistema.fn_lista_todo_modelo_telefono(#{pIdMarca})
+	</select>
+</mapper>

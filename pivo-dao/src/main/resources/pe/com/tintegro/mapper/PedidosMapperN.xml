@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.PedidosMapperN">
+
+	<resultMap id="PedidosResultMapss" type="pe.com.tintegro.dominio.PedidoPorClienteN">
+		<result property="noRazonSocial" column="no_razon_social" />
+		<result property="idPedido" column="id_pedido" />
+		<result property="fePedido" column="fe_pedido" />
+		<result property="idCliente" column="id_cliente" />
+		<result property="noTipoDocumento" column="no_tipodoc" />
+		<result property="nuDocumento" column="nu_documento" />
+		<result property="noEstadoPedido" column="no_estadopedido" />
+	</resultMap>
+
+	<select id="lsPedidos" resultMap="PedidosNResultMapss">
+<!-- 	p_id_tipodoc integer, p_no_cliente character varying, p_no_documento character varying, p_id_estadiopedido integer -->
+		select * from
+		sistema.fn_pedido_cliente(#{idTipoDoc},#{noDocumento},#{noCliente},#{idEstadoPedido})
+	</select>
+
+	<select id="ingresarPedidos" resultMap="PedidosNResultMapss">
+<!-- 	p_no_cliente character varying, p_descripcion character varying, p_plan character varying, p_tipo_pedido integer -->
+		select * from
+		sistema.fn_ingresar_pedidos_cliente(#{noCliente},#{noDescripcion},#{noPlan},#{tipoPedido})
+	</select>
+	
+	<select id="modificarPedidos" resultMap="PedidosNResultMapss">
+<!-- 	p_no_cliente character varying, p_descripcion character varying, p_plan character varying, p_tipo_pedido integer -->
+		select * from
+		sistema.fn_modificar_pedidos_cliente(#{noCliente},#{noDescripcion},#{noPlan},#{tipoPedido})
+	</select>
+	
+	<select id="eliminarPedidos" resultMap="PedidosNResultMapss">
+<!-- 	p_id_pedido integer  -->
+		select * from
+		sistema.fn_eliminar_pedidos_cliente(#{idPedido})
+	</select>
+</mapper>

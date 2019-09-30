@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteLlamadas" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" whenResourceMissingType="Empty" isIgnorePagination="true" uuid="4a9f250c-dc24-4023-86be-ad3a898f0733">
+	<property name="ireport.zoom" value="1.3310000000000217"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="org.apache.commons.lang.time.*"/>
+	<parameter name="origen" class="java.lang.String"/>
+	<parameter name="tipoLlamada" class="java.lang.String"/>
+	<parameter name="fechaInicial" class="java.lang.String"/>
+	<parameter name="horaInicial" class="java.lang.String"/>
+	<parameter name="duracionInicial" class="java.lang.String"/>
+	<parameter name="destino" class="java.lang.String"/>
+	<parameter name="disposicion" class="java.lang.String"/>
+	<parameter name="fechaFinal" class="java.lang.String"/>
+	<parameter name="horaFinal" class="java.lang.String"/>
+	<parameter name="duracionFinal" class="java.lang.String"/>
+	<parameter name="MyDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<field name="src" class="java.lang.String"/>
+	<field name="feLlamado" class="java.lang.String"/>
+	<field name="caDuraci" class="java.lang.Integer"/>
+	<field name="vaDispos" class="java.lang.String"/>
+	<field name="dst" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="203" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="103" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="b6f3a4b4-433e-489c-8e31-8544fd4a4cc4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Origen:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="120" y="103" width="178" height="20" uuid="593cf984-c7cd-4ee3-9d76-811d60543af2"/>
+				<textFieldExpression><![CDATA[($P{origen}== null ? "Todos":
+                                                ($P{origen}== "" ? "Todos": $P{origen}
+                                                                          ))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="123" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="3331e2bc-0b23-4620-b990-4261a6d66f57"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tipo Llamada:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="123" width="178" height="20" uuid="db5afdfb-8d8f-4011-807e-9f57263d32eb"/>
+				<textFieldExpression><![CDATA[$P{tipoLlamada}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="143" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="c4274d81-8442-4306-9b4a-e16f39ec216c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Desde Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="143" width="178" height="20" uuid="635cdf61-6149-4fbd-b498-7dd6cb3a1465"/>
+				<textFieldExpression><![CDATA[$P{fechaInicial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="163" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="29461501-af31-46dc-b8c3-ec560f583be1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Desde Hora:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="163" width="178" height="20" uuid="ff0c90e8-8b4f-40f0-a635-6c027477cb89"/>
+				<textFieldExpression><![CDATA[$P{horaInicial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="183" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="88dc064e-3c45-44a4-b4aa-b7456596f46c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Desde Duración:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="120" y="183" width="178" height="20" uuid="1e0a98c5-af9d-4bda-98f1-a07521a93ab8"/>
+				<textFieldExpression><![CDATA[$P{duracionInicial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="103" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="7404ca91-e1a7-45cb-b667-13638fe66d3b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Destino:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="398" y="103" width="178" height="20" uuid="835bbba8-2eda-4d15-9fe3-6bc5d69297e1"/>
+				<textFieldExpression><![CDATA[($P{destino}== null ? "Todos":
+                                                ($P{destino}== "" ? "Todos": $P{destino}
+                                                    ))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="123" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="0ba4fd2c-4588-4a23-ae30-9ab729d8dffe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Disposición:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="398" y="123" width="178" height="20" uuid="28bc1358-991c-4ae8-b4c6-a549e61578ec"/>
+				<textFieldExpression><![CDATA[$P{disposicion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="143" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="0df6612a-ce08-42f2-b576-10c27913f201"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Hasta Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="398" y="143" width="178" height="20" uuid="3eb8fbcb-db0f-42da-8394-31c9372a8d74"/>
+				<textFieldExpression><![CDATA[$P{fechaFinal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="163" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="e01868c1-e18d-4536-885a-63bf1e1a9d73"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Hasta Hora:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="398" y="163" width="178" height="20" uuid="d7a3f53d-af90-4453-9e2c-bdecaf069f86"/>
+				<textFieldExpression><![CDATA[$P{horaFinal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="183" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="24476525-4e48-45af-af8e-dd271e2214b3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Hasta Duración:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="398" y="183" width="178" height="20" uuid="6ce5df27-5e15-4b80-a9d9-501a802c4409"/>
+				<textFieldExpression><![CDATA[$P{duracionFinal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="0" width="278" height="41" forecolor="#000000" backcolor="#FFFFFF" uuid="8a52d872-4cc1-4163-9397-40a53f330a7b"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T-Integro]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="298" y="0" width="278" height="41" uuid="f292a92d-f6c5-40f0-abef-e3d417831a5d"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{MyDate})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="41" width="556" height="62" forecolor="#000000" backcolor="#FFFFFF" uuid="c508416f-7c30-4dcb-90ed-a1b633694b66"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Llamadas (General)]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="12" width="100" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="8a52d872-4cc1-4163-9397-40a53f330a7b"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Orígen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="120" y="12" width="95" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="edba724a-68be-4e33-a21d-16a236ca59a0"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="12" width="100" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="fdb3cb1c-6199-4ee0-af11-396256a9a2d8"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Disposición]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="215" y="12" width="83" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="779affcc-96ad-42be-b3eb-14b85605bdfc"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Duración]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="398" y="12" width="178" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="1f932a3c-b7c1-4b32-9bc4-f78b092a6ef4"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destino]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="100" height="20" uuid="b770a5d1-44cb-472a-8d4d-30c24e2bf4ea"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{src}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="0" width="178" height="20" backcolor="#CCCCCC" uuid="ca620945-5ef1-4571-83a6-0535ac0a33bd"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dst}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="0" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="a6bd8415-7bc1-4974-91dd-99270d6f7de9"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vaDispos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="0" width="83" height="20" uuid="2e63b506-73b3-4377-9a58-864445b4be5b"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuraci}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="120" y="0" width="95" height="20" backcolor="#CCCCCC" uuid="54bebc42-8d40-4dcf-b100-94fe6b4625fe"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feLlamado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

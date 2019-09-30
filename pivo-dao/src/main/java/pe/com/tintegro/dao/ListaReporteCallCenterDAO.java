@@ -1,0 +1,26 @@
+package pe.com.tintegro.dao;
+
+import pe.com.tintegro.dto.request.ListarReporteAtencionClienteCallCenterRequest;
+import pe.com.tintegro.dto.response.ListarReporteAtencionClienteCallCenterResponse;
+
+import pe.com.tintegro.dto.request.ListarReporteLlamadaDiaHoraCallCenterRequest;
+import pe.com.tintegro.dto.response.ListarReporteLlamadaDiaHoraCallCenterResponse;
+
+import pe.com.tintegro.dto.request.ListarReporteLlamadaConsolidadaAgenteCallCenterRequest;
+import pe.com.tintegro.dto.response.ListarReporteLlamadaConsolidadaAgenteCallCenterResponse;
+
+
+import pe.com.tintegro.dto.request.ListarReporteConsolidadoLlamadaRecibidaCallCenterRequest;
+import pe.com.tintegro.dto.response.ListarReporteConsolidadoLlamadaRecibidaCallCenterResponse;
+
+
+public interface ListaReporteCallCenterDAO {
+	public ListarReporteAtencionClienteCallCenterResponse listaReporteAtencionClienteCallCenter(String ip,ListarReporteAtencionClienteCallCenterRequest request)throws Exception;
+	public ListarReporteLlamadaDiaHoraCallCenterResponse listaReporteLlamadaDiaHoraCallCenter(String ip,ListarReporteLlamadaDiaHoraCallCenterRequest request)throws Exception;
+	public ListarReporteConsolidadoLlamadaRecibidaCallCenterResponse listarReporteConsolidadoLlamadaRecibidaCallCenter(String ip,ListarReporteConsolidadoLlamadaRecibidaCallCenterRequest request)throws Exception;
+	public ListarReporteLlamadaConsolidadaAgenteCallCenterResponse listarReporteLlamadaConsolidadaAgenteCallCenter(String ip,ListarReporteLlamadaConsolidadaAgenteCallCenterRequest request)throws Exception;
+////////////////
+	public ListarReporteLlamadaConsolidadaAgenteCallCenterResponse reporteLlamadaConsolidadaAgenteCallCenter(String ip,ListarReporteLlamadaConsolidadaAgenteCallCenterRequest request)throws Exception;
+	
+	
+}

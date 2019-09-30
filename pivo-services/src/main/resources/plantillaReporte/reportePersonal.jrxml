@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportePersonal" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" isIgnorePagination="true" uuid="bc898076-457c-472c-a866-3622cc5da6f3">
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="ireport.zoom" value="1.3310000000000055"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="org.apache.commons.lang.time.*"/>
+	<parameter name="MyDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pIdPersonal" class="java.lang.String"/>
+	<parameter name="pNuDocumento" class="java.lang.String"/>
+	<parameter name="pNoNombreApellido" class="java.lang.String"/>
+	<parameter name="pIdTipoDocumento" class="java.lang.Integer"/>
+	<parameter name="pIlActivo" class="java.lang.Boolean"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="idPersonal" class="java.lang.String"/>
+	<field name="noPersonal" class="java.lang.String"/>
+	<field name="noApePat" class="java.lang.String"/>
+	<field name="noApeMat" class="java.lang.String"/>
+	<field name="noAbreviatura" class="java.lang.String"/>
+	<field name="nuDocumento" class="java.lang.String"/>
+	<field name="noDireccion" class="java.lang.String"/>
+	<field name="nuTelefono" class="java.lang.String"/>
+	<field name="nuCelular" class="java.lang.String"/>
+	<field name="nuCmvp" class="java.lang.String"/>
+	<field name="noEstado" class="java.lang.String"/>
+	<field name="noGrupoOcupacional" class="java.lang.String"/>
+	<field name="caProfesional" class="java.lang.Integer"/>
+	<field name="caNoProfesional" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="164" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="0" width="278" height="41" forecolor="#000000" backcolor="#FFFFFF" uuid="8a52d872-4cc1-4163-9397-40a53f330a7b"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Plataforma Integral de Veterinarias Online]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="298" y="0" width="278" height="41" uuid="f292a92d-f6c5-40f0-abef-e3d417831a5d"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{MyDate})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="41" width="556" height="62" forecolor="#000000" backcolor="#FFFFFF" uuid="c508416f-7c30-4dcb-90ed-a1b633694b66"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Llamadas Usuarios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="41" width="556" height="62" forecolor="#000000" backcolor="#FFFFFF" uuid="c6a755ae-ce38-42ab-885d-2be5f0cf8559"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de  Personal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="144" width="100" height="20" uuid="c97807b1-931c-4dbd-bcdc-8923300a258d"/>
+				<text><![CDATA[Tipo Documento :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="124" width="100" height="20" uuid="0c967941-9201-4276-9939-2144374062aa"/>
+				<text><![CDATA[N°Doc :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="398" y="144" width="178" height="20" uuid="3887aef9-6cdb-49a8-af94-aa0db0994665"/>
+				<textFieldExpression><![CDATA[$P{pIlActivo}== null?"Todos":$F{noEstado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="144" width="100" height="20" uuid="5435c9d3-bd67-4071-b8f1-d0d3efe7488f"/>
+				<text><![CDATA[Estado :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="124" width="178" height="20" uuid="42544536-da4c-48a8-9e5e-d0468c8c53da"/>
+				<textFieldExpression><![CDATA[$P{pNuDocumento}== null?"Todos":$P{pNuDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="124" width="178" height="20" uuid="d19476c5-96f6-42a4-8f09-fd08e99893e7"/>
+				<textFieldExpression><![CDATA[$P{pNoNombreApellido}== null?"Todos":$P{pNoNombreApellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="144" width="178" height="20" uuid="07ec7523-70b5-4bbb-8465-0a66ad024964"/>
+				<textFieldExpression><![CDATA[$P{pIdTipoDocumento}== null?"Todos":$F{noAbreviatura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="124" width="100" height="20" uuid="312cfd95-deb9-4cf4-a0a7-1d43b97d5a29"/>
+				<text><![CDATA[Nombre :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="104" width="100" height="20" uuid="40c2c35c-31a4-43eb-b144-8d1bb36313e7"/>
+				<text><![CDATA[Id Personal :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="104" width="178" height="20" uuid="facdcfcb-b74b-4771-9386-fcf110911a26"/>
+				<textFieldExpression><![CDATA[$P{pIdPersonal}== null?"Todos":$P{pIdPersonal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="90" y="12" width="80" height="29" backcolor="#CCCCCC" uuid="b137a9a5-9a02-4a45-b274-a234d4fdc53b"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="170" y="12" width="90" height="29" backcolor="#CCCCCC" uuid="c426dfe8-7246-4381-815d-c6db8816d5b7"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ap.Paterno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="260" y="12" width="90" height="29" backcolor="#CCCCCC" uuid="d4f368d6-9c2a-4c41-8c96-6dbcffb3e35b"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ap.Materno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="12" width="70" height="29" backcolor="#CCCCCC" uuid="3ad31f91-0e73-4e70-9a02-4ea83d9c14dd"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[N°Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="510" y="12" width="60" height="29" backcolor="#CCCCCC" uuid="1bdaeb41-c894-4ff0-9509-d7eefa573c33"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°CMVP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="12" width="70" height="29" backcolor="#CCCCCC" uuid="ab1f8ef7-f911-4d80-b13b-81df2979c980"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Personal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="420" y="12" width="90" height="29" backcolor="#CCCCCC" uuid="d32b57f9-fa64-4785-993d-db63ace2d5fe"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.Grupo Ocupacional]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="70" height="20" uuid="5c08e36d-14fe-44d2-b5da-109bcb1c0955"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idPersonal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="90" height="20" uuid="fba78f05-920a-4592-b2a1-6ce9c7494d81"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noApePat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="90" height="20" uuid="101db454-897e-4abf-b572-437d72d6cf01"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noApeMat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="70" height="20" uuid="f8e6627b-987e-4174-a1d0-5d07d2284b7a"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="80" height="20" uuid="59248b6d-55ef-491b-9c0b-f5f6738ed551"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noPersonal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="60" height="20" uuid="1028c0e7-6b43-460e-93b5-be7abf056eab"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuCmvp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="90" height="20" uuid="e41000df-1831-4ab4-98d3-0c1202b6c256"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noGrupoOcupacional}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="320" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="20" y="10" width="556" height="300" uuid="72d0e5eb-2bd1-415f-9a0d-28721229c794"/>
+					<chartTitle>
+						<titleExpression><![CDATA[" Personal "]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<pieDataset>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{caProfesional}]]></keyExpression>
+						<valueExpression><![CDATA[$F{caProfesional}]]></valueExpression>
+						<labelExpression><![CDATA["Personal Profesional"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{caNoProfesional}]]></keyExpression>
+						<valueExpression><![CDATA[$F{caNoProfesional}]]></valueExpression>
+						<labelExpression><![CDATA["Personal No Profesional"]]></labelExpression>
+					</pieSeries>
+				</pieDataset>
+				<piePlot>
+					<plot>
+						<seriesColor seriesOrder="0" color="#9EB1FF"/>
+						<seriesColor seriesOrder="1" color="#D6CAFF"/>
+						<seriesColor seriesOrder="2" color="#FF6573"/>
+						<seriesColor seriesOrder="3" color="#46BFBD"/>
+						<seriesColor seriesOrder="4" color="#FDB45C"/>
+						<seriesColor seriesOrder="5" color="#949FB1"/>
+						<seriesColor seriesOrder="6" color="#4D5360"/>
+					</plot>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc
+                            http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+                            http://www.springframework.org/schema/beans 
+                            http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                            http://www.springframework.org/schema/aop 
+                            http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+                            http://www.springframework.org/schema/tx 
+                            http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+                            http://www.springframework.org/schema/context 
+                            http://www.springframework.org/schema/context/spring-context-4.2.xsd
+                            http://www.springframework.org/schema/cache
+ 							http://www.springframework.org/schema/cache/spring-cache.xsd">
+	<context:spring-configured />
+	<context:annotation-config />
+	
+	<context:component-scan base-package="pe.com.tintegro" />
+	<context:component-scan base-package="pe.com.tintegro.config" />
+	<context:property-placeholder location="classpath*:/config.properties" /> 
+	
+	<!--  <context:property-placeholder location="classpath*:/webconfig.properties" /> -->
+<!-- 	<context:property-placeholder location="classpath:webconfig.properties" /> -->
+	
+	<!-- Most controllers will use the ControllerClassNameHandlerMapping above, 
+		but for the index controller we are using ParameterizableViewController, 
+		so we must define an explicit mapping for it. -->
+	<!-- <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> -->
+	<!-- <property name="mappings"> -->
+	<!-- <props> -->
+	<!-- <prop key="index.htm">indexController</prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	
+	<mvc:annotation-driven />
+<!--   <cache:annotation-driven />
+		<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean
+                  class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"
+                  name="generalCache"/>
+            </set>
+        </property>
+    </bean>-->
+    <import resource="CachingBeans.xml"/>
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	
+	<!-- <mvc:resources location="/webapp/" mapping="/webapp/**" /> -->
+
+	<mvc:interceptors>
+		<bean class="pe.com.tintegro.interceptor.SeguridadInterceptor" />
+	</mvc:interceptors>
+
+	<mvc:cors>
+		 
+		 <mvc:mapping 
+		    path="/**" allowed-origins="*"
+			allowed-methods="POST, GET, PUT, OPTIONS, DELETE"
+			allowed-headers="x-requested-with, Content-Type, codUsuario, token, idInstancia"
+			max-age="3600" allow-credentials="false" />
+	</mvc:cors>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/static" p:suffix=".html" />
+
+	<!-- The index controller. -->
+	<!-- <bean name="indexController" class="org.springframework.web.servlet.mvc.ParameterizableViewController" 
+		p:viewName="index" /> -->
+	
+	<!--   swagger	 -->
+	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
+	<mvc:resources mapping="/swagger-ui.html" location="classpath:/META-INF/resources/" />
+		
+	<bean class="pe.com.tintegro.config.SwaggerConfig" />	
+</beans>

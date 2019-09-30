@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportLlamadasAtAbFecha" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6843191b-0bd8-4077-855f-7448d7d4f83d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.columns" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="idLlamada" class="java.lang.Integer"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="atendidas" class="java.lang.String"/>
+	<field name="abandonadasMenor" class="java.lang.String"/>
+	<field name="abandonadasMayor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="-2" width="595" height="29" forecolor="#FFFFFF" backcolor="#000000" uuid="c508416f-7c30-4dcb-90ed-a1b633694b66"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE LLAMADAS ATENDIDAS Y ABANDONADAS POR FECHA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="31" height="40" backcolor="#CCCCCC" uuid="13381b5c-96e2-4729-9adc-5034da79bd2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="31" y="0" width="120" height="40" backcolor="#CCCCCC" uuid="13381b5c-96e2-4729-9adc-5034da79bd2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="151" y="0" width="120" height="40" backcolor="#CCCCCC" uuid="13381b5c-96e2-4729-9adc-5034da79bd2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Llamadas Atendidas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="271" y="20" width="160" height="20" backcolor="#CCCCCC" uuid="13381b5c-96e2-4729-9adc-5034da79bd2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Abandonadas Mayor a Min]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="431" y="20" width="164" height="20" backcolor="#CCCCCC" uuid="13381b5c-96e2-4729-9adc-5034da79bd2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Abandonadas Menor a Min]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="271" y="0" width="324" height="20" backcolor="#CCCCCC" uuid="5eafdd96-6b4a-4429-9421-ac12de2b32ea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Llamadas Abandonadas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="31" height="20" uuid="59c39fb7-c362-4b30-bd84-0b41daf6078a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idLlamada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="0" width="120" height="20" uuid="1900994b-f62f-4b0a-9c62-f32d583e3a02"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="0" width="120" height="20" uuid="7c7fb18b-34a9-4161-95e2-094dc5fe1af7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Integer.parseInt($F{atendidas})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="0" width="160" height="20" uuid="eec15322-a70c-468a-b2c6-a6429e9d4e2d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Integer.parseInt($F{abandonadasMenor})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="0" width="164" height="20" uuid="ba518074-3ef5-45a9-b321-8bdb7a3cc72d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Integer.parseInt($F{abandonadasMayor})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

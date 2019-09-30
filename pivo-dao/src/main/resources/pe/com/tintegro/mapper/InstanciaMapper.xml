@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.InstanciaMapper">
+
+	<resultMap id="InstanciaResultMap"
+		type="pe.com.tintegro.dominio.InstanciaServerAsterisk">
+		<result property="idInstancia" column="id_instancia" />
+		<result property="ipAsterisk" column="ip_asterisk" />
+		<result property="nomMascaraRedLan" column="no_mascara_red_lan" />
+		<result property="nomMascaraOpenVpn" column="no_mascara_open_vpn" />
+		<result property="idCliente" column="id_cliente" />
+		<result property="ilEstado" column="il_estado" />
+		<result property="ilLibre" column="il_libre" />
+		<result property="ipAsteriskBash" column="ipasteriskbash" />
+		<result property="puerto_ssh_asterisk" column="puerto_ssh_asterisk" />
+		<result property="puertoOpenVPN" column="puerto_openvpn" />
+		<result property="pamConfInicial" column="pam_confinicial" />
+		<result property="simPais" column="sim_pais" />
+		<result property="simProvincia" column="sim_provincia" />
+		<result property="fullProvincia" column="full_provincia" />
+		<result property="noOrgani" column="no_organi" />
+		<result property="email" column="no_email" />
+		<result property="idModelo" column="id_modelo" />
+		<result property="idMarca" column="id_marca" />
+		<result property="noModelo" column="no_modelo" />
+		<result property="noMarca" column="no_marca" />
+		<result property="inicial" column="inicial" />
+		<result property="idEstadoInstancia" column="id_estadoinst" />
+		<result property="noEstadoInstancia" column="no_estadoinstancia" />
+		<result property="noRazonSocial" column="no_razon_social" />
+		<result property="nuDocide" column="nu_docide" />
+		<result property="direccion" column="direccion" />
+		<result property="telefono" column="telefono" />
+		<result property="correo" column="correo" />
+		<result property="personaReferencia" column="personareferencia" />
+		<result property="noPlan" column="no_plan" />
+		<result property="idMostrar" column="id_mostrar" />
+		<result property="fePedido" column="fe_pedido" />
+		<result property="noInstancia" column="no_instancia" />
+		<result property="noRazonSocial" column="nombre_razon_social" />
+		<result property="noPasswordLdap" column="no_password_ldap" />
+		<result property="tipoInstancia" column="id_tipodetalle" />
+		<result property="isTls" column="il_seguridad" />
+		<result property="zonaHoraria" column="zona_horaria"/>
+		<result property="caAnexos" column="ca_anexos"/>
+
+	</resultMap>
+
+	<resultMap id="InsActualizarResultMap"
+		type="pe.com.tintegro.dominio.InstanciaServerAsterisk">
+		<result property="result" column="id_resulta" />
+		<result property="mensaje" column="no_mensaje" />
+	</resultMap>
+
+	<resultMap type="pe.com.tintegro.dto.response.CRUDResponse"
+		id="crudResponseResultMap">
+		<result property="idResult" column="id_resulta" />
+		<result property="mensajeValidacion" column="no_mensaje" />
+	</resultMap>
+   <select id="insertarInstanciaN" resultMap="crudResponseResultMap">
+		select * from
+		sistema.fn_registrar_instancia(
+		#{p_ip_asterisk},
+		#{p_no_mascara_red_lan},
+		#{p_no_mascara_open_vpn},
+		#{p_id_cliente},
+		#{p_il_estado},
+		#{p_il_libre},
+		#{p_puerto_ssh_asterisk},
+		#{p_puerto_openvpn},
+		#{p_sim_pais},
+		#{p_sim_provincia},
+		#{p_full_provincia},
+		#{p_no_organi},
+		#{p_no_email},
+		#{p_id_estadoinst},
+		#{p_no_instancia},
+		#{p_no_password_ldap},
+		#{p_inicial},
+		#{p_id_detapedido},
+		#{p_il_seguridad})
+	</select>
+	<resultMap type="pe.com.tintegro.dominio.StatusBash" id="statusBashResultMap">
+		<result property="idBash" column="id_bash" />
+		<result property="noDescripBash" column="no_descrip_bash" />
+		<result property="noServicioEjecucion" column="no_servicio_ejecucion" />
+		<result property="nuStatusBash" column="nu_status_bash" />
+		<result property="noStatusBash" column="no_status_bash" />
+		<result property="ilNext" column="il_next" />
+		<result property="ilLast" column="il_last"/>
+	</resultMap>
+
+	<select id="actualizarInstancia" resultMap="InsActualizarResultMap">
+		select * from
+		sistema.fn_actualizar_instancia(
+		#{pIdinstancia},
+		#{pIpAsterisk},
+		#{pNomMascaraRedLan},
+		#{pNomMascaraOpenVpn},
+		<!-- #{pIdCliente}, -->
+		<!-- #{pIlLibre}, -->
+		#{pIpAsteriskBash},
+		#{pPuerto_ssh_asterisk},
+		#{pPuertoOpenvpn},
+		#{pPamConfinicial},
+		#{pSimPais},
+		#{pSimProvincia},
+		#{pFullProvincia},
+		#{pNoOrgani},
+		#{pNoEmail},
+		#{pIdModelo},
+		#{pIdMarca},
+		<!-- #{pInicial}, -->
+		<!-- #{pIdEstadoinst}, -->
+		#{pNomInstancia},
+		#{pIlEstado}
+		)
+	</select>
+
+	<select id="listaInstanciaxIdinstancia" resultMap="InstanciaResultMap">
+		select * from
+		sistema.fn_buscar_instancias_por_idinstancia(#{p_id_instancia})
+	</select>
+
+	<select id="listarInstancia" resultMap="InstanciaResultMap">
+		SELECT * from
+		sistema.fn_listar_instancias_new(#{p_id_tipdoc},#{p_nu_docide},#{p_id_cliente},#{p_id_pedido},#{p_id_estadoinstancia},#{p_id_plan},#{p_id_tipoestadopedido},#{p_id_instanciax},#{p_id_usuario},#{p_no_login})
+	</select>
+
+	<select id="notifyExecuteBashConfigInitial" resultMap="crudResponseResultMap">
+		SELECT *
+		FROM sistema.fn_notify_execute_bash( #{idBash}, #{idInstance},
+		#{typeNotification} );
+	</select>
+
+	<select id="loadStatusConfigInitialInstance" resultMap="statusBashResultMap">
+		SELECT *
+		FROM sistema.fn_load_status_bash_by_instanceid( #{idInstance} );
+	</select>
+
+	<select id="updateInstanceStatus" resultMap="crudResponseResultMap">
+		SELECT * FROM
+		sistema.fn_estado_instancia( #{idInstance}, #{idInstanceStatus},
+		#{codUser} );
+	</select>
+	<select id="listaInstanciasPorEmpresa" resultMap="InstanciaResultMap">
+		select * from
+		sistema.fn_listar_instancias_cliente(#{p_id_instancia})
+	</select>
+</mapper>

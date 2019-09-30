@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.HistoriaClinicaVacunaMapper">
+	<resultMap id="HistoriaClinicaVacunaResultMap" type="pe.com.tintegro.dominio.HistoriaClinicaVacuna">
+		<result property="idHistoriaClinica" column="id_historia_clinica" />
+		<result property="idVacuna" column="id_vacuna" />
+		<result property="noVacuna" column="no_vacuna" />
+		<result property="feReg" column="fe_reg" />
+	
+	</resultMap>
+	
+	<resultMap id="HistoriaClinicaVacunaCRUD" type="pe.com.tintegro.dto.response.CRUDResponse">
+		<result property="idResult" column="id_resulta"/>
+		<result property="mensajeValidacion" column="no_mensaje" />
+	</resultMap>
+	
+	<!-- =============================================================== -->
+	
+	<select id="listarHistoriaClinicaVacuna" resultMap="HistoriaClinicaVacunaResultMap">
+		select * from
+		sistema.fn_listar_historia_clinica_vacuna(#{p_id_historia_clinica})
+	</select>	
+
+	<!-- =============================================================== -->
+	
+	<select id="registrarHistoriaClinicaVacuna" resultMap="HistoriaClinicaVacunaCRUD">
+		select * from
+		sistema.fn_registrar_historia_clinica_vacuna(#{p_id_historia_clinica},
+											  #{p_id_vacuna}
+											  )
+	</select>	
+
+	<!-- =============================================================== -->
+	
+	<select id="actualizarHistoriaClinicaVacuna" resultMap="HistoriaClinicaVacunaCRUD">
+		select * from
+		sistema.fn_actualizar_historia_clinica_vacuna(#{p_id_historia_clinica},
+											  #{p_id_vacuna}
+											  )
+	</select>	
+
+	<!-- =============================================================== -->
+	
+	<select id="eliminarHistoriaClinicaVacuna" resultMap="HistoriaClinicaVacunaCRUD">
+		select * from
+		sistema.fn_eliminar_historia_clinica_vacuna(#{p_id_historia_clinica},
+													#{p_id_vacuna})
+	</select>	
+
+	<!-- =============================================================== -->
+
+
+</mapper>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteAtencionCliente" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7d379fe7-d045-4ac1-85ec-2b5789460888">
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="anexo" class="java.lang.String"/>
+	<field name="eContestada" class="java.lang.Integer"/>
+	<field name="eNoContestada" class="java.lang.Integer"/>
+	<field name="eFallida" class="java.lang.Integer"/>
+	<field name="totalEntrante" class="java.lang.Integer"/>
+	<field name="totalInhablando2" class="java.lang.String"/>
+	<field name="sContestada" class="java.lang.Integer"/>
+	<field name="sNocontestada" class="java.lang.Integer"/>
+	<field name="sFallida" class="java.lang.Integer"/>
+	<field name="totalSaliente" class="java.lang.Integer"/>
+	<field name="totalOuthablando2" class="java.lang.String"/>
+	<field name="totalRegistros" class="java.lang.Integer"/>
+	<title>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="-2" width="595" height="29" forecolor="#FFFFFF" backcolor="#000000" uuid="8e14039c-4792-4e46-8621-0ebbb5375fd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE LLAMADAS CONSOLIDADAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="45" height="50" backcolor="#CCCCCC" uuid="936cc0ea-0362-41ad-a449-7670a6a9a12c"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Anexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="45" y="0" width="275" height="20" backcolor="#CCCCCC" uuid="d5402633-8463-4795-b1b2-574ca26af53c"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrantes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="45" y="20" width="70" height="30" backcolor="#CCCCCC" uuid="a014e315-04f9-4010-8991-dbe94c940a6a"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contestadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="115" y="20" width="65" height="30" backcolor="#CCCCCC" uuid="c203ee34-de23-44ea-9530-7b36d6b56233"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No Contestadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="180" y="20" width="40" height="30" backcolor="#CCCCCC" uuid="36937b94-f2b5-4e9a-982e-51bcca3d271f"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fallidas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="220" y="20" width="50" height="30" backcolor="#CCCCCC" uuid="86f8e12b-f1d3-4181-aa59-b092d4860a12"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrantes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="270" y="20" width="50" height="30" backcolor="#CCCCCC" uuid="a1fabb7b-c707-48b3-99b4-247754853531"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="320" y="0" width="275" height="20" backcolor="#CCCCCC" uuid="280353bc-a571-4195-9c78-5e6a9ff5d9d6"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrantes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="320" y="20" width="65" height="30" backcolor="#CCCCCC" uuid="6dfa4842-160d-4fa2-8630-afc8e954af22"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contestadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="385" y="20" width="65" height="30" backcolor="#CCCCCC" uuid="18a266e9-1acc-458e-88d9-bed560270d7e"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No Contestadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="20" width="40" height="30" backcolor="#CCCCCC" uuid="f8000cd5-f43f-428f-bbd5-f551123a30ab"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fallidas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="490" y="20" width="50" height="30" backcolor="#CCCCCC" uuid="9092a46b-c958-43b2-83cb-2f8412c30262"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="540" y="20" width="55" height="30" backcolor="#CCCCCC" uuid="1716f9f2-1a24-46aa-afcb-0ba7cbbae697"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="45" height="20" uuid="2087a995-2781-4e8a-8bd7-3574eae93003"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{anexo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="0" width="70" height="20" uuid="f0bc0da5-28d2-4568-9088-09b6e9ce4395"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{eContestada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="0" width="65" height="20" uuid="16e3c5fa-7011-4b79-bbc3-b786dd91e068"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{eNoContestada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="40" height="20" uuid="48538e26-c35b-4a89-9c82-58552f69cddf"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{eFallida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="50" height="20" uuid="e740f329-1a5a-4edc-bfef-0f8aad3e0002"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalEntrante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="50" height="20" uuid="5184c3c1-d782-4dab-8a83-2b59c3d42677"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalInhablando2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="65" height="20" uuid="06ff05b2-b694-4d8f-bdb0-e6ce5c723c28"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sContestada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="385" y="0" width="65" height="20" uuid="37776819-a19f-42d3-814b-1f494db81802"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sNocontestada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="40" height="20" uuid="6ceee7b4-7bcd-4f66-bec6-4d1bcf424c72"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sFallida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="50" height="20" uuid="06dc1ee4-42fb-48c2-b1d2-d82c49705aa2"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalSaliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="540" y="0" width="55" height="20" uuid="090bcc2f-f558-4dfe-babe-da3471e97d51"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalOuthablando2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

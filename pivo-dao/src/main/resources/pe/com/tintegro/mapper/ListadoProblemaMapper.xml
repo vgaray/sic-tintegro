@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.ListadoProblemaMapper">
+	
+	<resultMap id="ListadoProblemaResultMap"
+		type="pe.com.tintegro.dominio.ListadoProblema">
+		<result property="idListadoProblema"
+			column="id_listado_problema" />
+		<result property="noProblema" column="no_problema" />
+		<result property="noDescripcion" column="no_descripcion" />
+		<result property="idTipoProblema" column="id_tipo_problema" />
+		<result property="noTipoProblema" column="no_tipo_problema" />
+		<result property="feRegistro" column="fe_registro" />
+		<result property="idHistoriaClinica" column="id_historia_clinica" />
+	</resultMap>
+
+	<resultMap id="HistoriaClinicaCRUD"
+		type="pe.com.tintegro.dto.response.CRUDResponse">
+		<result property="idResult" column="id_resulta" />
+		<result property="mensajeValidacion" column="no_mensaje" />
+	</resultMap>
+
+	<!-- =============================================================== -->
+
+	<select id="listarListadoProblema"
+		resultMap="ListadoProblemaResultMap">
+		select * from
+		sistema.fn_listar_historia_listado_problema_service(#{p_nu_chip},
+		#{p_no_pass},
+		#{p_id_instancia})
+	</select>
+
+	<!-- =============================================================== -->
+
+</mapper>

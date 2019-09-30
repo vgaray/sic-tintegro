@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.HistoriaClinicaMapper">
+
+	<resultMap id="HistoriaClinicaResultMap"
+		type="pe.com.tintegro.dominio.HistoriaClinica">
+		<result property="idHistoriaClinica"
+			column="id_historia_clinica" />
+		<result property="idEncargado" column="id_encargado" />
+		<result property="feAdmision" column="fe_admision" />
+		<result property="nuChip" column="nu_chip" />
+		<result property="noNombre" column="no_nombre" />
+		<result property="noEspecie" column="no_especie" />
+		<result property="noRaza" column="no_raza" />
+		<result property="noColor" column="no_color" />
+		<result property="noSexo" column="no_sexo" />
+		<result property="feNacimiento" column="fe_nacimiento" />
+		<result property="nuEdad" column="nu_edad" />
+		<result property="noEspecie" column="no_especie" />
+		<result property="noSenasParticulares"
+			column="no_senas_particulares" />
+		<result property="noProcedencia" column="no_procedencia" />
+		<result property="idUsuario" column="id_usuario" />
+		<result property="noMotivoConsulta" column="no_motivo_consulta" />
+		<result property="noAnamnesicos" column="no_anamnesicos" />
+		<result property="noAlergias" column="no_alergias" />
+		<result property="noEfermedadesRecientes"
+			column="no_enfermedades_recientes" />
+		<result property="noCirugias" column="no_cirugias" />
+		<result property="noHabitad" column="no_habitad" />
+		<result property="noAntFamiliares" column="no_ant_familiares" />
+		<result property="noTipoAlimentacion"
+			column="no_tipo_alimentacion" />
+		<result property="idMascota" column="id_mascota" />
+		<result property="idEstadoReproductivo"
+			column="id_estado_reproductivo" />
+		<result property="idVeterinaria" column="id_veterinaria" />
+		<result property="noTipoAlimentacion"
+			column="no_tipo_alimentacion" />
+		<result property="nuHistoria" column="nu_historia" />
+		<result property="noNombreEstadoReproductivo"
+			column="no_nombre_estado_reproductivo" />
+
+
+
+	</resultMap>
+
+	<resultMap id="HistoriaClinicaCRUD"
+		type="pe.com.tintegro.dto.response.CRUDResponse">
+		<result property="idResult" column="id_resulta" />
+		<result property="mensajeValidacion" column="no_mensaje" />
+	</resultMap>
+
+	<!-- =============================================================== -->
+
+	<select id="listarHistoriaClinica"
+		resultMap="HistoriaClinicaResultMap">
+		select * from
+		sistema.fn_listar_historia_clinica(#{p_id_mascota},
+		#{p_no_usuario},
+		#{p_ti_fun})
+	</select>
+
+	<!-- =============================================================== -->
+
+	<select id="registrarHistoriaClinica"
+		resultMap="HistoriaClinicaCRUD">
+		select * from
+		sistema.fn_registrar_historia_clinica(#{p_no_alergias},
+		#{p_no_ant_familiares},
+		#{p_id_mascota},
+		#{p_id_estado_reproductivo},
+		#{p_id_tipo_alimentacion}
+		)
+	</select>
+
+	<!-- =============================================================== -->
+
+	<select id="actualizarHistoriaClinica"
+		resultMap="HistoriaClinicaCRUD">
+		select * from
+		sistema.fn_actualizar_historia_clinica(#{p_id_historia_clinica},
+		#{p_no_alergias},
+		#{p_no_ant_familiares},
+		#{p_id_estado_reproductivo},
+		#{p_id_tipo_alimentacion})
+	</select>
+
+	<!-- =============================================================== -->
+
+	<select id="eliminarHistoriaClinica"
+		resultMap="HistoriaClinicaCRUD">
+		select * from
+		sistema.fn_eliminar_historia_clinica(#{p_id_historia_clinica})
+	</select>
+
+	<!-- =============================================================== -->
+
+
+</mapper>

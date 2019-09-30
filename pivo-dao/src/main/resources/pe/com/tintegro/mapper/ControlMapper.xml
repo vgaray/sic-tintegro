@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.ControlMapper">
+	<!-- <resultMap id="ControlResultMap" type="pe.com.tintegro.dto.response.ListaControlRolEstadoResponse"> 
+		<result property="validarControlResult" column="fn_validar_control"/> </resultMap> -->
+
+
+	<select id="listaControlRolEstado" resultType="java.lang.String">
+		SELECT * from
+		sistema.fn_validar_control(#{p_no_login},#{p_ti_elemto},#{p_id_estadoelemento})
+	</select>
+
+</mapper>

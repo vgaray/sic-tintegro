@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pe.com.tintegro.mapper.IpServerMapper">
+	<resultMap id="IpServerResultMap" type="pe.com.tintegro.dominio.IpServer">
+		<result property="noIpServer" column="fn_listar_ip_server" />
+	</resultMap>
+	<select id="listaipserver" resultMap="IpServerResultMap">
+		select * from sistema.fn_listar_ip_server(#{p_id_tipodetalle});
+	</select>
+</mapper>

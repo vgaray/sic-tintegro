@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.RolMapper">
+
+	<resultMap id="listaRolesxTipoMap" type="pe.com.tintegro.dominio.Rol">
+		<result property="idRol" column="id_rol" />
+		<result property="noRol" column="no_rol" />
+		<result property="noTipoRol" column="no_tip_rol" />
+	</resultMap>
+
+	<resultMap id="listaRolesxInstancia" type="pe.com.tintegro.dominio.Rol">
+		<result property="idRol" column="id_rol" />
+		<result property="noRol" column="no_rol" />
+        <result property="noDescri" column="no_descri"/>
+	</resultMap>
+
+    <resultMap id="listaPaginaxIdRol" type="pe.com.tintegro.dominio.Pagina">
+        <result property="idPagina" column="id_pagina" />
+		<result property="noPagina" column="no_pagina" />
+    </resultMap>
+	
+	<select id="listarRolesPorRol" resultMap="listaRolesxTipoMap">
+		SELECT * FROM oauth.fn_listar_role_por_tipo_rol(#{pIdTipoRol})
+	</select>
+	
+	<resultMap id="crearRoleMap" type="pe.com.tintegro.dto.response.RolResponse">
+		<result property="idRol" column="id_resulta" />
+		<result property="noMensaje" column="no_mensaje" />		
+	</resultMap>
+
+	<resultMap id="confirmacionResultMap" type="pe.com.tintegro.dominio.Confirmacion">
+	   <result property="ID" column="id_resulta"/>
+	   <result property="mensaje" column="no_mensaje"/>
+	</resultMap>
+
+	<select id="crearRol" resultMap="crearRoleMap">
+		SELECT * FROM oauth.fn_insertar_rol(#{pNoRol},
+							  #{pNoDescri},
+							  #{pIlActivo},
+							  #{pIdTipoRol},
+							  #{pIdInstancia})		
+	</select>
+	
+	<select id="AsignarPaginaPorRol" resultMap="crearRoleMap">
+		SELECT * FROM oauth.fn_asignar_pagina_rol(#{pIdRol},
+							  #{pIdPagina})		
+	</select>
+	
+	<select id="actualizarRol" resultMap="crearRoleMap">
+		SELECT * FROM oauth.fn_actualizar_rol(#{pIdRol},
+							  #{pNoRol},
+							  #{pNoDescri},
+							  #{pIlActivo},
+							  #{pIdTipoRol},
+							  #{pIdInstancia})		
+	</select>
+	
+	<select id="eliminarPaginaPorRol" resultMap="crearRoleMap">
+		SELECT * FROM oauth.fn_eliminar_paginas_por_rol(#{pIdRol})		
+	</select>
+
+	<select id="listaRolesPorInstancia" resultMap="listaRolesxInstancia">
+		SELECT * FROM
+		oauth.fn_listar_rol_por_instancia(#{pCodUsuario},#{pIdInstancia})
+	</select>
+	
+     <select id="listaPaginaPorIdRol" resultMap="listaPaginaxIdRol">
+         SELECT * FROM 
+         oauth.fn_lista_paginas_por_id_rol (#{pCodUsuario},#{pIdRol});  
+     </select>
+	
+	<select id="eliminarRol" resultMap="confirmacionResultMap">
+<!-- 		SELECT * FROM oauth.fn_eliminar_rol(#{pIdRol})		 -->
+		SELECT * FROM oauth.fn_eliminar_rol(#{idInstancia}, #{idRol})
+	</select>
+</mapper>

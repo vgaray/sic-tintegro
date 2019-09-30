@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteConsolidadoLlamadaRecibida" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4220211e-5146-40cf-beae-a2e67e31d40f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="noQueuename" class="java.lang.String"/>
+	<field name="noMes" class="java.lang.String"/>
+	<field name="noDia" class="java.lang.String"/>
+	<field name="noDiaSemana" class="java.lang.String"/>
+	<field name="nuCantidad" class="java.lang.Integer"/>
+	<field name="nuAnio" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="595" height="39" forecolor="#FFFFFF" backcolor="#000000" uuid="b013ae2b-5f3f-4701-8878-5ac9f32555a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE CONSOLIDADO LLAMADA RECIBIDA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="100" height="40" backcolor="#CCCCCC" uuid="2dd10eec-8d20-473a-a881-23e79c581b0c"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cola]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="0" width="100" height="40" backcolor="#CCCCCC" uuid="0eeedb46-1f8d-40fd-a52e-c01a82a5ee03"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Año]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="0" width="75" height="40" backcolor="#CCCCCC" uuid="82e1a00e-8989-48cb-bc86-ea863a6a2fdf"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Día]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="0" width="145" height="40" backcolor="#CCCCCC" uuid="d2840f85-0841-44cf-b492-28f048620925"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Semana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="495" y="0" width="100" height="40" backcolor="#CCCCCC" uuid="6f20cf15-3646-4349-8ebc-fab9a290db58"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="0" width="75" height="40" backcolor="#CCCCCC" uuid="c0b36ab2-412b-4f8d-abe3-6687e4e205c4"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Solid" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mes]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="99" height="30" uuid="435877df-4987-4e23-a3ba-65f9411852af"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{noQueuename}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="99" height="30" uuid="6fcef6eb-c049-4893-9429-7fb036d2de61"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nuAnio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="74" height="30" uuid="a191e486-c3d0-4358-a30b-310d5b84373a"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{noMes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="0" width="74" height="30" uuid="a606b111-5c93-4e8d-a97f-b1e7b3ac37e1"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{noDia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="145" height="30" uuid="98212c7e-e928-41b7-9c3b-e0cc860af1e8"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{noDiaSemana}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="495" y="0" width="99" height="30" uuid="d2f59cdf-7d2f-401d-a59a-3ac7c69136d2"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nuCantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

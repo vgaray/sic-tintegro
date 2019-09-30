@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteMascotas" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" isIgnorePagination="true" uuid="bc898076-457c-472c-a866-3622cc5da6f3">
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="ireport.zoom" value="1.3310000000000055"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="org.apache.commons.lang.time.*"/>
+	<parameter name="MyDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="idMascota" class="java.lang.Integer"/>
+	<field name="noNombre" class="java.lang.String"/>
+	<field name="noEspecie" class="java.lang.String"/>
+	<field name="noRaza" class="java.lang.String"/>
+	<field name="noColor" class="java.lang.String"/>
+	<field name="noSeniasParticulares" class="java.lang.String"/>
+	<field name="noSexo" class="java.lang.String"/>
+	<field name="nuEdad" class="java.lang.String"/>
+	<field name="nuChip" class="java.lang.String"/>
+	<field name="feNacimiento" class="java.lang.String"/>
+	<field name="noDuenio" class="java.lang.String"/>
+	<field name="feRegistro" class="java.lang.String"/>
+	<field name="idEspecie" class="java.lang.Integer"/>
+	<field name="idRaza" class="java.lang.Integer"/>
+	<field name="caCani" class="java.lang.Integer"/>
+	<field name="caFeli" class="java.lang.Integer"/>
+	<field name="caArac" class="java.lang.Integer"/>
+	<field name="caAnfi" class="java.lang.Integer"/>
+	<field name="caRep" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="0" width="278" height="41" forecolor="#000000" backcolor="#FFFFFF" uuid="8a52d872-4cc1-4163-9397-40a53f330a7b"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Plataforma Integral de Veterinarias Online]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="298" y="0" width="278" height="41" uuid="f292a92d-f6c5-40f0-abef-e3d417831a5d"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{MyDate})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="41" width="556" height="62" forecolor="#000000" backcolor="#FFFFFF" uuid="c508416f-7c30-4dcb-90ed-a1b633694b66"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Llamadas Usuarios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="41" width="556" height="62" forecolor="#000000" backcolor="#FFFFFF" uuid="c6a755ae-ce38-42ab-885d-2be5f0cf8559"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de  Mascotas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="140" y="12" width="90" height="29" backcolor="#CCCCCC" uuid="b137a9a5-9a02-4a45-b274-a234d4fdc53b"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="230" y="12" width="50" height="29" backcolor="#CCCCCC" uuid="c426dfe8-7246-4381-815d-c6db8816d5b7"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="440" y="12" width="66" height="29" backcolor="#CCCCCC" uuid="d4f368d6-9c2a-4c41-8c96-6dbcffb3e35b"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha.Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="506" y="12" width="70" height="29" backcolor="#CCCCCC" uuid="3ad31f91-0e73-4e70-9a02-4ea83d9c14dd"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Fecha.Registro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="12" width="60" height="29" backcolor="#CCCCCC" uuid="ab1f8ef7-f911-4d80-b13b-81df2979c980"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IdMascota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="12" width="60" height="29" backcolor="#CCCCCC" uuid="096ba00b-84dc-4a12-8fc7-22377eed4e78"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="12" width="50" height="29" backcolor="#CCCCCC" uuid="61547ced-d257-41f1-8e57-65182ec72c53"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Raza]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="390" y="12" width="50" height="29" backcolor="#CCCCCC" uuid="b19ab679-3efc-41bd-acdd-bdc852d3f9dd"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="12" width="60" height="29" backcolor="#CCCCCC" uuid="13cf43d7-bcb6-4b04-85bc-ee802058c9b0"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°Chip]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="60" height="20" uuid="5c08e36d-14fe-44d2-b5da-109bcb1c0955"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idMascota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="90" height="20" uuid="fba78f05-920a-4592-b2a1-6ce9c7494d81"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noNombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="50" height="20" uuid="101db454-897e-4abf-b572-437d72d6cf01"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noSexo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="60" height="20" uuid="f8e6627b-987e-4174-a1d0-5d07d2284b7a"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noEspecie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="60" height="20" uuid="59248b6d-55ef-491b-9c0b-f5f6738ed551"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuChip}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="50" height="20" uuid="1028c0e7-6b43-460e-93b5-be7abf056eab"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nuEdad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="50" height="20" uuid="e41000df-1831-4ab4-98d3-0c1202b6c256"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noRaza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="66" height="20" uuid="e094f21b-946f-4720-8d22-a80a0b87e961"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feNacimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="506" y="0" width="70" height="20" uuid="5a50c445-8358-4063-aeef-184d267a9b4e"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feRegistro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="310" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="20" y="10" width="556" height="300" uuid="1dd1134a-936f-41f7-b5ea-a5c4198dd66e"/>
+					<chartTitle>
+						<titleExpression><![CDATA[" Mascotas "]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Top"/>
+				</chart>
+				<pieDataset>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{caCani}]]></keyExpression>
+						<valueExpression><![CDATA[$F{caCani}]]></valueExpression>
+						<labelExpression><![CDATA["Canino"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{caFeli}]]></keyExpression>
+						<valueExpression><![CDATA[$F{caFeli}]]></valueExpression>
+						<labelExpression><![CDATA["Felino"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{caArac}]]></keyExpression>
+						<valueExpression><![CDATA[$F{caArac}]]></valueExpression>
+						<labelExpression><![CDATA["Aracnido"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{caAnfi}]]></keyExpression>
+						<valueExpression><![CDATA[$F{caAnfi}]]></valueExpression>
+						<labelExpression><![CDATA["Anfibio"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA[$F{caRep}]]></keyExpression>
+						<valueExpression><![CDATA[$F{caRep}]]></valueExpression>
+						<labelExpression><![CDATA["Reptil"]]></labelExpression>
+					</pieSeries>
+				</pieDataset>
+				<piePlot>
+					<plot>
+						<seriesColor seriesOrder="0" color="#9EB1FF"/>
+						<seriesColor seriesOrder="1" color="#D6CAFF"/>
+						<seriesColor seriesOrder="2" color="#FF6573"/>
+						<seriesColor seriesOrder="3" color="#46BFBD"/>
+						<seriesColor seriesOrder="4" color="#FDB45C"/>
+						<seriesColor seriesOrder="5" color="#949FB1"/>
+						<seriesColor seriesOrder="6" color="#4D5360"/>
+					</plot>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

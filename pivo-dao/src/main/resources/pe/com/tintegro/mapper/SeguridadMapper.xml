@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.SeguridadMapper">
+	<resultMap id="confirmacionResultMap" type="pe.com.tintegro.dominio.Confirmacion">
+		<result property="ID" column="id_resulta" />
+		<result property="mensaje" column="no_mensaje" />
+	</resultMap>
+
+	<select id="validarAccesoAServicio" resultMap="confirmacionResultMap">
+		SELECT * FROM oauth.fn_validar_servicio_por_usuario(#{p_no_login}, #{p_no_url},#{p_il_istancia})
+	</select>
+
+	<select id="validarAccesoAInstancia" resultMap="confirmacionResultMap">
+		SELECT * from sistema.fn_validar_instancia_por_usuario(#{p_no_login}, #{p_id_instancia})
+	</select>
+</mapper>

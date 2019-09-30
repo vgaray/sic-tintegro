@@ -1,0 +1,6 @@
+Extension,String,1,nomUsuario
+Caller ID,String,0,callerId
+Correo de Voz,String,0,email
+Marca,string,0,nomMarca
+Modelo,string,0,nomModelo
+MAC,string,0,nomMac

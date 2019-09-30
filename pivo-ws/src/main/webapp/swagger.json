@@ -1,0 +1,113 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "T-Integro API",
+        "description": "Move your app forward with the T_Integro API",
+        "version": "1.0.0"
+    },
+    "host": "192.168.3.61",
+    "schemes": [
+        "http"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/sic-ws/tbUsuario/listar": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Lista de Usuarios Asterisk",
+                "description": "The Products endpoint returns information about the *Uber* products\noffered at a given location. The response includes the display name\nand other details about each product, and lists the products in the\nproper display order.\n",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "filtros.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ListaUsuarioAskRequest"
+                        }
+                    }
+                ],
+                "tags": [
+                    "UsuarioAsk"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of Usuarios Asterisk",
+                        "schema": {
+                            "$ref": "#/definitions/ListaUsuarioAskResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ListaUsuarioAskResponse": {
+            "type": "object",
+            "properties": {
+                "estado": {
+                    "type": "integer",
+                    "description": "Si es 1 es servicio respondio correctamente, si es cero el servicio fallo y si es -1 es mensaje de negocio."
+                },
+                "mensaje": {
+                    "type": "string",
+                    "description": "Si es correcto devuel Ok, si es erroneo sale el mensaje de error y en caso de ser error de negocio el mensaje a mostrar."
+                },
+                "codError": {
+                    "type": "string",
+                    "description": "codigo de error."
+                },
+                "tbUsuarioList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/UsuarioAsk"
+                    },
+                    "description": "Lista de usuarios Asterisk."
+                }
+            }
+        },
+        "UsuarioAsk": {
+            "type": "object",
+            "properties": {
+                "idUsuari": {
+                    "type": "integer",
+                    "description": "asdadsasd"
+                },
+                "noNombre": {
+                    "type": "string",
+                    "description": "ddadasd"
+                },
+                "ilActivo": {
+                    "type": "string",
+                    "description": "adads."
+                },
+                "ilfijloca": {
+                    "type": "integer",
+                    "description": "adasdasasdasd"
+                },
+                "ilfijnaci": {
+                    "type": "integer",
+                    "description": "zasdadsasd."
+                },
+                "ilfijinte": {
+                    "type": "integer",
+                    "description": "Upper bound of the estimated price."
+                },
+                "ilcelloca": {
+                    "type": "integer",
+                    "description": "adasdasdasdads"
+                }
+            }
+        },
+        "ListaUsuarioAskRequest": {
+            "type": "object"
+        }
+    }
+}

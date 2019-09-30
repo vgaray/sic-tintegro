@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.MascotaMapper">
+	<resultMap id="MascotaResultMap" type="pe.com.tintegro.dominio.Mascota">
+		<result property="idMascota" column="id_mascota" />
+		<result property="noNombre" column="no_nombre" />
+		<result property="noEspecie" column="no_especie" />
+		<result property="noRaza" column="no_raza" />
+		<result property="noColor" column="no_color" />
+		<result property="noSeniasParticulares" column="no_senias_particulares" />
+		<result property="noSexo" column="no_sexo" />
+		<result property="nuEdad" column="nu_edad" />
+		<result property="nuChip" column="nu_chip" />
+		<result property="feNacimiento" column="fe_nacimiento" />
+		<result property="noDuenio" column="no_duenio" />
+		<result property="feRegistro" column="fe_registro" />
+		<result property="idEspecie" column="id_especie" />
+		<result property="idRaza" column="id_raza" />
+		<result property="caCani" column="ca_cani" />
+		<result property="caFeli" column="ca_feli" />
+		<result property="caArac" column="ca_arac" />
+		<result property="caAnfi" column="ca_anfi" />
+		<result property="caRep" column="ca_rep" />
+	</resultMap>
+
+	<select id="listarMascota" resultMap="MascotaResultMap">
+		select * from
+		sistema.fn_listar_mascota(#{p_id_mascota},#{p_cod_usuario},#{p_nu_chip},#{p_ti_fun})
+	</select>
+
+	<resultMap id="MascotaCRUD" type="pe.com.tintegro.dto.response.CRUDResponse">
+		<result property="idResult" column="id_resulta" />
+		<result property="mensajeValidacion" column="no_mensaje" />
+	</resultMap>
+
+	<select id="registrarMascota" resultMap="MascotaCRUD">
+		select * from
+		sistema.fn_registrar_mascota(#{p_no_nombre},#{p_no_color},#{p_no_senias_particulares},#{p_no_sexo},#{p_nu_edad},#{p_nu_chip},#{p_fe_nacimiento},#{p_cod_usuario},#{p_id_especie},#{p_id_raza})
+	</select>
+
+	<select id="actualizarMascota" resultMap="MascotaCRUD">
+		select * from
+		sistema.fn_actualizar_mascota(#{p_id_mascota},#{p_no_nombre},#{p_no_color},#{p_no_senias_particulares},#{p_no_sexo},#{p_nu_edad},#{p_nu_chip},#{p_fe_nacimiento},#{p_cod_usuario},#{p_id_especie},#{p_id_raza})
+	</select>
+	
+	<select id="eliminarMascota" resultMap="MascotaCRUD">
+		select * from
+		sistema.fn_eliminar_mascota(#{p_id_mascota})
+	</select>
+</mapper>

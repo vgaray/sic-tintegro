@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportRankingLlamadas" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" isIgnorePagination="true" uuid="bc898076-457c-472c-a866-3622cc5da6f3">
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="ireport.zoom" value="1.3310000000000055"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="org.apache.commons.lang.time.*"/>
+	<parameter name="MyDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaInicial" class="java.lang.String"/>
+	<parameter name="fechaFinal" class="java.lang.String"/>
+	<parameter name="horaInicial" class="java.lang.String"/>
+	<parameter name="horaFinal" class="java.lang.String"/>
+	<parameter name="pIdOrden" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="noUsuario" class="java.lang.String"/>
+	<field name="caLlamad" class="java.lang.Integer"/>
+	<field name="caDuraci" class="java.lang.String"/>
+	<field name="caDuracProm" class="java.lang.String"/>
+	<field name="caDuracMin" class="java.lang.String"/>
+	<field name="caDuracMax" class="java.lang.String"/>
+	<field name="nuTotalMin" class="java.lang.Number"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="163" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="0" width="278" height="41" forecolor="#000000" backcolor="#FFFFFF" uuid="8a52d872-4cc1-4163-9397-40a53f330a7b"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T-Integro]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="298" y="0" width="278" height="41" uuid="f292a92d-f6c5-40f0-abef-e3d417831a5d"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{MyDate})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="41" width="556" height="62" forecolor="#000000" backcolor="#FFFFFF" uuid="c508416f-7c30-4dcb-90ed-a1b633694b66"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Llamadas Usuarios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="41" width="556" height="62" forecolor="#000000" backcolor="#FFFFFF" uuid="c6a755ae-ce38-42ab-885d-2be5f0cf8559"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de  Ranking de Llamadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="123" width="100" height="20" uuid="c97807b1-931c-4dbd-bcdc-8923300a258d"/>
+				<text><![CDATA[Desde Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="103" width="100" height="20" uuid="0c967941-9201-4276-9939-2144374062aa"/>
+				<text><![CDATA[Desde Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="398" y="123" width="178" height="20" uuid="3887aef9-6cdb-49a8-af94-aa0db0994665"/>
+				<textFieldExpression><![CDATA[$P{horaFinal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="123" width="100" height="20" uuid="5435c9d3-bd67-4071-b8f1-d0d3efe7488f"/>
+				<text><![CDATA[Hasta Hora:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="103" width="178" height="20" uuid="42544536-da4c-48a8-9e5e-d0468c8c53da"/>
+				<textFieldExpression><![CDATA[$P{fechaInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="103" width="178" height="20" uuid="d19476c5-96f6-42a4-8f09-fd08e99893e7"/>
+				<textFieldExpression><![CDATA[$P{fechaFinal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="123" width="178" height="20" uuid="07ec7523-70b5-4bbb-8465-0a66ad024964"/>
+				<textFieldExpression><![CDATA[$P{horaInicial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="103" width="100" height="20" uuid="312cfd95-deb9-4cf4-a0a7-1d43b97d5a29"/>
+				<text><![CDATA[Hasta Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="143" width="100" height="20" uuid="ba405dbe-c634-4123-b602-d580ef9e67e4"/>
+				<text><![CDATA[Filtro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="143" width="178" height="20" uuid="3f8523d0-48f7-408b-a2b9-0eb4d4185bbf"/>
+				<textFieldExpression><![CDATA[$P{pIdOrden}==Integer.parseInt("1") ? "Cantidad de Llamadas":"Tiempo de Conversación"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="12" width="100" height="29" backcolor="#CCCCCC" uuid="b137a9a5-9a02-4a45-b274-a234d4fdc53b"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="120" y="12" width="98" height="29" backcolor="#CCCCCC" uuid="c426dfe8-7246-4381-815d-c6db8816d5b7"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Llamada Realizada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="218" y="12" width="80" height="29" backcolor="#CCCCCC" uuid="d4f368d6-9c2a-4c41-8c96-6dbcffb3e35b"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo Hablado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="298" y="12" width="100" height="29" backcolor="#CCCCCC" uuid="9e15299e-50ec-4d3c-9309-d00a3d310924"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[T. Promedio Hablado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="398" y="12" width="88" height="29" backcolor="#CCCCCC" uuid="3ad31f91-0e73-4e70-9a02-4ea83d9c14dd"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[T. Min. Hablado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="486" y="12" width="90" height="29" backcolor="#CCCCCC" uuid="1bdaeb41-c894-4ff0-9509-d7eefa573c33"/>
+				<box>
+					<topPen lineWidth="1.25"/>
+					<leftPen lineWidth="1.25"/>
+					<bottomPen lineWidth="1.25"/>
+					<rightPen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[T.Max. Hablado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="100" height="20" uuid="5c08e36d-14fe-44d2-b5da-109bcb1c0955"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noUsuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="0" width="80" height="20" uuid="f5f8252d-0775-491b-9cab-7acebbabdfe3"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuraci}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="0" width="100" height="20" uuid="fba78f05-920a-4592-b2a1-6ce9c7494d81"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuracProm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="0" width="88" height="20" uuid="101db454-897e-4abf-b572-437d72d6cf01"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuracMin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="0" width="90" height="20" uuid="f8e6627b-987e-4174-a1d0-5d07d2284b7a"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caDuracMax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="98" height="20" uuid="59248b6d-55ef-491b-9c0b-f5f6738ed551"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caLlamad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="320" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="20" y="20" width="556" height="290" uuid="df500fbf-52a3-4a8c-ba51-33dc5ffe158f"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend position="Top">
+						<font fontName="SansSerif"/>
+					</chartLegend>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$P{pIdOrden}==Integer.parseInt("1") ? "Cantidad de Llamadas":"Total segundos"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{noUsuario}]]></categoryExpression>
+						<valueExpression><![CDATA[$P{pIdOrden}==Integer.parseInt("1") ? $F{caLlamad}:$F{nuTotalMin}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot isShowLabels="true">
+					<plot orientation="Horizontal">
+						<seriesColor seriesOrder="0" color="#9EB1FF"/>
+						<seriesColor seriesOrder="1" color="#D6CAFF"/>
+						<seriesColor seriesOrder="2" color="#FF6573"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

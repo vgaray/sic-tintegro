@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.UsuarioCitaMapper">
+	<resultMap id="UsuarioCitaResultMap"
+		type="pe.com.tintegro.dominio.UsuarioXCita">
+		<result property="idUsuario" column="id_usuario" />
+		<result property="noNombre" column="no_nombre" />
+		<result property="noApellido" column="no_apellido" />
+		<result property="nuTelefono" column="nu_telefono" />
+		<result property="noEmail" column="no_email" />
+		<result property="noProfe" column="no_profe" />
+		<result property="noTipoDocumento" column="no_tipo_documento" />
+		<result property="nuDocumento" column="nu_documento" />
+		<result property="idMascota" column="id_mascota" />
+		<result property="noNombreMascota" column="no_nombre_mascota" />
+		<result property="nuChip" column="nu_chip" />
+		<result property="noEspecie" column="no_especie" />
+		<result property="noRaza" column="no_raza" />
+	</resultMap>
+
+	<select id="listaUsuarioCita" resultMap="UsuarioCitaResultMap">
+		select * from
+		oauth.fn_listar_usuario_cita(#{p_nu_documento})
+	</select>
+
+</mapper>

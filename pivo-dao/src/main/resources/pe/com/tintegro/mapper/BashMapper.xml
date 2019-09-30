@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.BashMapper">
+	<resultMap type="pe.com.tintegro.dominio.Bash" id="bashResultMap">
+		<result property="idBash" column="id_bash" />
+		<result property="noDescrip" column="no_descrip" />
+		<result property="noRuta" column="no_ruta" />
+		<result property="nuTipo" column="nu_tipo" />
+		<result property="ilUltimo" column="il_ultimo"/>
+	</resultMap>
+
+	<select id="loadBashById" resultMap="bashResultMap">
+		SELECT * FROM
+		sistema.fn_load_bash_by_id( #{idBash} )
+	</select>
+</mapper>

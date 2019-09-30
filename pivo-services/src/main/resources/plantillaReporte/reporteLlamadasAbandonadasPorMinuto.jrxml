@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteLlamadasAbandonadasPorMinuto" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="17446799-8388-4da3-be1b-a784f8377686">
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nuLlam" class="java.lang.String"/>
+	<field name="abaMenor" class="java.lang.String"/>
+	<field name="abaMayor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="595" height="30" forecolor="#FFFFFF" backcolor="#000000" uuid="f7b50c7e-ede1-48f8-9228-d142a0f09436"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSOLIDADO LLAMADAS ABANDONADAS POR MINUTO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="200" height="30" forecolor="#000000" backcolor="#CCCCCC" uuid="ee9cbaa5-6d4e-48ff-b37a-d9a67a1233be"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATENDIDAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="0" width="200" height="30" forecolor="#000000" backcolor="#CCCCCC" uuid="2c50fa22-0125-4fe3-abfd-690aacad6e16"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ABANDONADAS MENOR A MIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="400" y="0" width="195" height="30" forecolor="#000000" backcolor="#CCCCCC" uuid="8b5a6dea-362e-44a0-a706-a18086ea0db0"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ABANDONADAS MAYOR A MIN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="200" height="20" uuid="7b91e775-4c25-4826-b870-3b3f00d6af52"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Integer.parseInt($F{nuLlam})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="200" height="20" uuid="3fd93a2c-a76b-48fd-813b-f4350c0e96ef"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Integer.parseInt($F{abaMenor})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="195" height="20" uuid="0d6c3051-bb0b-4149-ad80-c3dca371bece"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#757373"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Integer.parseInt($F{abaMayor})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.PlanCantidadAMapper">
+	<resultMap id="plancantidadAResultMap" type="pe.com.tintegro.dominio.Plan">
+		<result property="noDescripcion" column="no_plan" />
+		<result property="caAnexos" column="ca_anexos" />
+	</resultMap>
+	
+	<select id="listarplancantidadA" resultMap="plancantidadAResultMap">
+		select * from sistema.fn_listar_cantidad_anexos_plan(#{pIdPlan})
+	</select>	
+
+</mapper>

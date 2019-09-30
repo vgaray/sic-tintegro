@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.PedidoPorClienteMapper">
+	<resultMap id="PedidosPorClienteMap" type="pe.com.tintegro.dominio.PedidoPorCliente">
+		<result property="idCliente" column="id_cliente" />
+		<result property="idPedido" column="id_pedido" />
+	</resultMap>
+
+	<resultMap id="asignaUsuarioMap" type="pe.com.tintegro.dominio.Usuario">
+		<result property="result" column="id_resulta" />
+		<result property="mensaje" column="no_mensaje" />
+	</resultMap>
+
+	<select id="pedidosPorcliente" resultMap="PedidosPorClienteMap">
+		SELECT * from
+		sistema.fn_cliente_pedido(
+		#{pNoRazonSocial},
+		#{pNuDocide},
+		#{pDireccion},
+		#{pTelefono},
+		#{pCorreo},
+		#{pPersonaReferencia},
+		#{pEstado},
+		#{pIdTipDoc},
+		#{pFePedido},
+		#{pIdEstadoPedido})
+	</select>
+
+	<select id="insertarInstanciaPorDetallePedido" resultType="java.lang.Integer">
+		SELECT * from sistema.fn_detalle_pedido(
+		#{pNoDetaPedido},
+		#{pIdTipoPedido},
+		#{pIdPedido},
+		#{pIdTipoDetalle},
+		#{pIdPlan},
+		#{pIdCliente},
+		#{pIpAsterisk},
+		#{pNomMascaraRedLan},
+		#{pNomMascaraOpenVpn},
+		#{pIlEstado},
+		#{pIlLibre},
+		#{pIpAsteriskBash},
+		#{pPuerto_ssh_asterisk},
+		#{pPuertoOpenVpn},
+		#{pPamConfInicial},
+		#{pSimPais},
+		#{pSimProvincia},
+		#{pFullProvincia},
+		#{pNoOrgani},
+		#{pNoEmail},
+		#{pIdModelo},
+		#{pIdMarca},
+		#{pNoModelo},
+		#{pNoMarca},
+		#{pInicial},
+		#{pIdEstadoInst}
+		)
+	</select>
+
+
+
+	<select id="asignarInstanciaUsuario" resultMap="asignaUsuarioMap">
+		select * from
+		oauth.fn_insertar_usuario_asignar_instancia(
+		#{pIdinstancia},
+		#{pNologin},
+		#{pNopasswo},
+		#{pNonombre},
+		#{pNoapellido},
+		#{pNoemail},
+		#{pNoProfe}
+		)
+
+	</select>
+</mapper>

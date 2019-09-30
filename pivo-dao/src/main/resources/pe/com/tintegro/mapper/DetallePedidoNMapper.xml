@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.tintegro.mapper.DetallePedidoNMapper">
+	<resultMap id="DetallePedidoResultMap" type="pe.com.tintegro.dominio.DetallePedidoN">
+		<result property="idDetallePedido" column="id_detapedido" />
+		<result property="noDetallePedido" column="no_detapedido" />
+		<result property="idPlan" column="id_plan" />
+	</resultMap>
+	
+	<select id="listardetallepedidoN" resultMap="DetallePedidoResultMap">
+		select * from sistema.fn_listar_detalle_pedido_cliente(#{p_id_cliente})
+	</select>	
+
+</mapper>
