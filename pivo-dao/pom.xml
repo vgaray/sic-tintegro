@@ -14,7 +14,7 @@
 		<mybatis.version>3.4.0</mybatis.version>
 		<oracle.version>11.2.0</oracle.version>
 		<junit.version>4.12</junit.version>
-		<org.springframework.version>4.2.5.RELEASE</org.springframework.version>
+		<org.springframework.version>6.0.0</org.springframework.version>
 	</properties>
 	<dependencies>
 		<!--PostgreSQL -->
